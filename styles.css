@@ -148,33 +148,31 @@ body::before {
 h1,
 h2,
 h3 {
-  color: var(--gold);
   margin: 0;
 }
 
 h1,
-h2,
-h3.section-title {
+h2 {
   font-family: "Cormorant Garamond", serif;
 }
 
-h1,
-h2 {
-  line-height: 0.95;
-}
-
 h1 {
+  color: var(--blue);
+  line-height: 0.95;
   font-size: clamp(3.5rem, 7vw, 6rem);
   margin-top: 12px;
 }
 
 h2 {
-  font-size: clamp(3rem, 5vw, 4rem);
-  margin-top: 10px;
+  color: var(--blue);
+  line-height: 1;
+  font-size: clamp(3.2rem, 5vw, 4.4rem);
+  margin-top: 8px;
 }
 
 h3 {
-  font-size: 1.5rem;
+  color: var(--blue);
+  font-size: 1.55rem;
 }
 
 .tagline {
@@ -329,7 +327,6 @@ h3 {
   color: var(--muted);
 }
 
-.split-section,
 .section-heading,
 .resume-panel,
 .contact-panel {
@@ -337,11 +334,19 @@ h3 {
   gap: 18px;
 }
 
-.split-section,
 .resume-panel,
 .contact-panel {
   grid-template-columns: 0.95fr 1.05fr;
   align-items: start;
+}
+
+.about-section {
+  display: block;
+}
+
+.about-section .section-kicker {
+  margin-bottom: 18px;
+  font-size: 1.35rem;
 }
 
 .about-card {
@@ -349,6 +354,10 @@ h3 {
   border-radius: var(--radius-lg);
   background: rgba(244, 248, 255, 0.8);
   border: 1px solid rgba(29, 77, 143, 0.08);
+}
+
+.about-card-full {
+  width: 100%;
 }
 
 .about-card p:first-child {
@@ -409,15 +418,201 @@ h3 {
   font-weight: 800;
 }
 
-.education-school {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 10px;
+.skills-layout {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.education-school img {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-  border-radius: 14px;
+.skill-block ul,
+.experience-card ul {
+  margin: 16px 0 0;
+  padding-left: 18px;
+}
+
+.experience-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.resume-actions,
+.contact-list {
+  align-self: center;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.contact-icon {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.contact-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-copy > * {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.hero-copy > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.hero-copy > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.hero-copy > *:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.hero-copy > *:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.hero-copy > *:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.hero-copy > *:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.hero-portrait-card {
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  animation: fadeScale 1s ease 0.35s forwards;
+}
+
+.project-card,
+.experience-card,
+.timeline-card,
+.skill-block,
+.button,
+.hero-photo-frame img {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+.project-card:hover,
+.experience-card:hover,
+.timeline-card:hover,
+.skill-block:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px rgba(15, 39, 70, 0.16);
+}
+
+.hero-photo-frame img:hover {
+  transform: scale(1.04);
+  filter: saturate(1.05);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 1040px) {
+  .topbar,
+  .hero,
+  .resume-panel,
+  .contact-panel,
+  .projects-grid,
+  .skills-layout,
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    border-radius: 28px;
+    padding: 18px;
+  }
+
+  .nav {
+    justify-content: flex-start;
+  }
+
+  .hero-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-shell {
+    width: min(calc(100% - 20px), var(--max-width));
+    padding-top: 12px;
+  }
+
+  .panel {
+    padding: 24px 20px;
+    border-radius: 24px;
+  }
+
+  .topbar {
+    position: static;
+    gap: 14px;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    line-height: 1.02;
+  }
+
+  .contact-item {
+    font-size: 0.98rem;
+  }
+}
