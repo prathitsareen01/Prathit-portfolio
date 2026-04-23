@@ -5,9 +5,7 @@
   --line: rgba(27, 67, 120, 0.12);
   --navy: #0b1f3a;
   --blue: #1d4d8f;
-  --blue-soft: #dce9fb;
   --gold: #b78b2e;
-  --gold-soft: #f2e2b3;
   --text: #1d2b3d;
   --muted: #59708c;
   --shadow: 0 28px 80px rgba(15, 39, 70, 0.12);
@@ -142,16 +140,26 @@ body::before {
   color: var(--gold);
 }
 
+.eyebrow {
+  font-size: 1.15rem;
+  letter-spacing: 0.24em;
+}
+
 h1,
 h2,
 h3 {
-  color: var(--navy);
+  color: var(--gold);
   margin: 0;
 }
 
 h1,
-h2 {
+h2,
+h3.section-title {
   font-family: "Cormorant Garamond", serif;
+}
+
+h1,
+h2 {
   line-height: 0.95;
 }
 
@@ -161,12 +169,12 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(2.3rem, 4vw, 3.2rem);
+  font-size: clamp(3rem, 5vw, 4rem);
   margin-top: 10px;
 }
 
 h3 {
-  font-size: 1.35rem;
+  font-size: 1.5rem;
 }
 
 .tagline {
@@ -314,7 +322,7 @@ h3 {
 .portrait-note p {
   margin: 0 0 4px;
   font-weight: 800;
-  color: var(--navy);
+  color: var(--gold);
 }
 
 .portrait-note span {
@@ -397,84 +405,19 @@ h3 {
 }
 
 .timeline-role {
-  color: var(--navy);
+  color: var(--gold);
   font-weight: 800;
 }
 
-.skills-layout {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.skill-block ul,
-.experience-card ul {
-  margin: 16px 0 0;
-  padding-left: 18px;
-}
-
-.experience-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.resume-actions,
-.contact-list {
-  align-self: center;
-}
-
-.contact-list {
+.education-school {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  font-size: 1.05rem;
-  font-weight: 700;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
 }
 
-@media (max-width: 1040px) {
-  .topbar,
-  .hero,
-  .split-section,
-  .resume-panel,
-  .contact-panel,
-  .projects-grid,
-  .skills-layout,
-  .experience-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .topbar {
-    border-radius: 28px;
-    padding: 18px;
-  }
-
-  .nav {
-    justify-content: flex-start;
-  }
-
-  .hero-metrics {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 720px) {
-  .site-shell {
-    width: min(calc(100% - 20px), var(--max-width));
-    padding-top: 12px;
-  }
-
-  .panel {
-    padding: 24px 20px;
-    border-radius: 24px;
-  }
-
-  .topbar {
-    position: static;
-    gap: 14px;
-  }
-
-  h1 {
-    font-size: 3rem;
-  }
-
-  h2 {
-    line-height: 1.02;
-  }
-}
+.education-school img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 14px;
