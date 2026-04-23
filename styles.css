@@ -131,13 +131,21 @@ body::before {
 }
 
 .eyebrow,
-.section-kicker,
 .project-label {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.75rem;
   font-weight: 800;
   color: var(--gold);
+}
+
+.section-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--gold);
+  margin-bottom: 14px;
 }
 
 .eyebrow {
@@ -346,7 +354,6 @@ h3 {
 
 .about-section .section-kicker {
   margin-bottom: 18px;
-  font-size: 1.35rem;
 }
 
 .about-card {
@@ -614,5 +621,9 @@ h3 {
 
   .contact-item {
     font-size: 0.98rem;
+  }
+
+  .section-kicker {
+    font-size: 1.2rem;
   }
 }
