@@ -139,15 +139,6 @@ body::before {
   color: var(--gold);
 }
 
-.section-kicker {
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 1.45rem;
-  font-weight: 800;
-  color: var(--gold);
-  margin-bottom: 14px;
-}
-
 .eyebrow {
   font-size: 1.15rem;
   letter-spacing: 0.24em;
@@ -172,15 +163,22 @@ h1 {
 }
 
 h2 {
-  color: var(--blue);
+  color: var(--gold);
   line-height: 1;
-  font-size: clamp(3.2rem, 5vw, 4.4rem);
-  margin-top: 8px;
+  font-size: clamp(3.4rem, 5.5vw, 4.8rem);
+  margin: 0 0 16px;
 }
 
 h3 {
   color: var(--blue);
   font-size: 1.55rem;
+}
+
+.section-subtitle {
+  margin: -2px 0 0;
+  color: var(--blue);
+  font-size: 1.35rem;
+  font-weight: 700;
 }
 
 .tagline {
@@ -350,10 +348,6 @@ h3 {
 
 .about-section {
   display: block;
-}
-
-.about-section .section-kicker {
-  margin-bottom: 18px;
 }
 
 .about-card {
@@ -623,7 +617,7 @@ h3 {
     font-size: 0.98rem;
   }
 
-  .section-kicker {
-    font-size: 1.2rem;
+  .section-subtitle {
+    font-size: 1.1rem;
   }
 }
