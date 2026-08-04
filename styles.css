@@ -430,6 +430,7 @@ h3 {
 }
 
 .experience-grid {
+  display: block;
   columns: 2 320px;
   column-gap: 18px;
 }
