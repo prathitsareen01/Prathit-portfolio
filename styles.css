@@ -430,8 +430,15 @@ h3 {
 }
 
 .experience-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
+  columns: 2 320px;
+  column-gap: 18px;
+}
+
+.experience-card {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 18px;
+  break-inside: avoid;
 }
 
 .resume-actions,
