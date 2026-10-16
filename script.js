@@ -126,6 +126,9 @@
     const toggle = card.querySelector(".experience-toggle");
     const details = card.querySelector(".experience-details");
     if (!toggle || !details) return;
+    let hovered = false;
+    let manuallyExpanded = false;
+    let closeTimer;
     const setExpanded = (expanded) => {
       if (!expanded && details.contains(document.activeElement)) toggle.focus({ preventScroll: true });
       card.dataset.experienceExpanded = String(expanded);
@@ -137,8 +140,34 @@
     };
     setExpanded(false);
     toggle.disabled = false;
-    toggle.addEventListener("click", () => {
-      setExpanded(toggle.getAttribute("aria-expanded") !== "true");
+    const syncExpanded = () => setExpanded(hovered || manuallyExpanded);
+    card.addEventListener("pointerenter", (event) => {
+      if (!hoverPointer.matches || event.pointerType === "touch") return;
+      clearTimeout(closeTimer);
+      hovered = true;
+      syncExpanded();
+    });
+    card.addEventListener("pointerleave", () => {
+      hovered = false;
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(syncExpanded, 120);
+    });
+    toggle.addEventListener("click", (event) => {
+      // Pointer users already opened the card by hovering. Keep tap/keyboard controls.
+      if (hoverPointer.matches && event.detail > 0 && event.pointerType !== "touch") return;
+      manuallyExpanded = !manuallyExpanded;
+      syncExpanded();
+    });
+    card.addEventListener("focusout", (event) => {
+      if (card.contains(event.relatedTarget)) return;
+      manuallyExpanded = false;
+      syncExpanded();
+    });
+    hoverPointer.addEventListener("change", () => {
+      if (!hoverPointer.matches) {
+        hovered = false;
+        syncExpanded();
+      }
     });
   });
 
