@@ -107,11 +107,11 @@
           <div class="section-heading">
             <div>
               <h2>Projects</h2>
-              <p class="section-subtitle">Selected modeling and strategy work</p>
+              <p class="section-subtitle">Selected modeling, strategy, and financial review work</p>
             </div>
             <p class="section-lead">
-              Two featured projects demonstrate valuation, M&amp;A analysis, and strategic
-              corporate finance capabilities.
+              Three featured projects demonstrate valuation, M&amp;A analysis, and
+              AI-assisted financial review.
             </p>
           </div>
 
@@ -177,6 +177,38 @@
                 </a>
                 <a class="button button-secondary" href="assets/netflix-model.xlsx" download>
                   Download Model
+                </a>
+              </div>
+            </article>
+
+            <article class="project-card" data-preview-card>
+              <div class="project-topline">
+                <span class="project-label">FP&amp;A &amp; AI Automation</span>
+                <h3>CloseLens Financial Review</h3>
+              </div>
+              <p>
+                Developed a monthly financial review prototype combining Python, SQLite, and
+                an LLM commentary workflow. Reconciled a $56,000 EBITDA shortfall using synthetic
+                data, linked variances to supporting evidence, and designed validation controls
+                for analyst-reviewed explanations.
+              </p>
+              <div class="project-preview-controls" hidden>
+                <button class="preview-toggle" type="button" aria-expanded="false" aria-controls="closelens-preview-panel">Preview project <span aria-hidden="true">+</span></button>
+              </div>
+              <div class="project-preview-panel" id="closelens-preview-panel" aria-hidden="true" inert>
+                <div class="project-preview-inner">
+                  <button class="preview-image-button" type="button" data-preview-open="closelens-preview-dialog" aria-label="Enlarge CloseLens financial review preview">
+                    <img src="assets/closelens-preview.webp" width="1120" height="1400" loading="lazy" decoding="async" alt="CloseLens EBITDA bridge: budget EBITDA of $90,000 falls to $34,000 after a revenue shortfall and cost overruns." />
+                  </button>
+                  <div class="preview-caption"><span>EBITDA variance bridge · Summary, page 4</span><button class="preview-enlarge" type="button" data-preview-open="closelens-preview-dialog">Enlarge preview</button></div>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a class="button button-primary" href="assets/closelens-summary.pdf" target="_blank" rel="noopener">
+                  Open Summary PDF
+                </a>
+                <a class="button button-secondary" href="assets/closelens-financial-review.xlsx" download>
+                  Download Workbook
                 </a>
               </div>
             </article>
@@ -578,6 +610,12 @@
       <img class="preview-full-image" src="assets/netflix-preview.webp" width="990" height="1400" loading="lazy" decoding="async" alt="Full page of the Netflix project summary, showing the acquisition thesis, financial metrics and three deal scenarios." />
       <a class="button button-primary" href="assets/netflix-summary.pdf" target="_blank" rel="noopener">Open full summary PDF</a>
     </dialog>
+    <dialog class="project-preview-dialog" id="closelens-preview-dialog" aria-labelledby="closelens-preview-title">
+      <div class="preview-dialog-heading"><h2 id="closelens-preview-title">CloseLens Financial Review</h2><button class="preview-close" type="button" data-preview-close autofocus aria-label="Close CloseLens preview">Close <span aria-hidden="true">×</span></button></div>
+      <p class="preview-dialog-note">EBITDA variance bridge · Synthetic data · Summary, page 4</p>
+      <img class="preview-full-image" src="assets/closelens-preview.webp" width="1120" height="1400" loading="lazy" decoding="async" alt="CloseLens financial review: a full EBITDA bridge reconciling the $56,000 shortfall from revenue and cost variances, with budget and actual margins." />
+      <a class="button button-primary" href="assets/closelens-summary.pdf" target="_blank" rel="noopener">Open full summary PDF</a>
+    </dialog>
     <dialog class="project-preview-dialog" id="resume-preview-dialog" aria-labelledby="resume-preview-title">
       <div class="preview-dialog-heading"><h2 id="resume-preview-title">Prathit Sareen · Resume</h2><button class="preview-close" type="button" data-preview-close autofocus aria-label="Close resume preview">Close <span aria-hidden="true">×</span></button></div>
       <p class="preview-dialog-note">Professional experience, education &amp; skills · Page 1</p>
@@ -590,4 +628,3 @@
     <script src="script.js?v=20261015-experience-hover"></script>
   </body>
 </html>
-
