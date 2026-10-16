@@ -1,0 +1,23 @@
+# Free, password-protected shared demo. SQLite resets on host restart.
+services:
+  - type: web
+    name: financeos-ai-portfolio
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-runtime.txt && python demo/generate_demo.py
+    startCommand: python -m uvicorn financeos.main:app --host 0.0.0.0 --port $PORT --workers 1
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.14.8
+      - key: FINANCEOS_MODE
+        value: hosted
+      - key: FINANCEOS_AUTH_USERNAME
+        value: demo
+      - key: FINANCEOS_AUTH_PASSWORD
+        generateValue: true
+      - key: FINANCEOS_EPHEMERAL
+        value: "true"
+      - key: FINANCEOS_DB
+        value: /tmp/financeos/financeos.db

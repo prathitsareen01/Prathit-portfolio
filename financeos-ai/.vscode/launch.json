@@ -1,0 +1,8 @@
+{
+  "version": "0.2.0",
+  "configurations": [{
+    "name": "FinanceOS AI (local)", "type": "debugpy", "request": "launch",
+    "module": "uvicorn", "args": ["financeos.main:app", "--host", "127.0.0.1", "--port", "8000"],
+    "cwd": "${workspaceFolder}", "console": "integratedTerminal", "justMyCode": true
+  }]
+}

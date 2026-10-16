@@ -1,0 +1,15 @@
+period,department,account,category,scenario,amount,currency
+2026-01,Commercial,Subscription revenue,revenue,actual,684740.51,USD
+2026-01,Commercial,Subscription revenue,revenue,budget,680000.00,USD
+2026-01,Commercial,Services revenue,revenue,actual,122031.32,USD
+2026-01,Commercial,Services revenue,revenue,budget,125000.00,USD
+2026-01,Delivery,Cloud infrastructure,cogs,actual,192806.54,USD
+2026-01,Delivery,Cloud infrastructure,cogs,budget,195000.00,USD
+2026-01,Delivery,Service delivery,cogs,actual,110449.98,USD
+2026-01,Delivery,Service delivery,cogs,budget,112000.00,USD
+2026-01,Product,Product payroll,opex,actual,154809.00,USD
+2026-01,Product,Product payroll,opex,budget,153000.00,USD
+2026-01,Commercial,Sales & marketing,opex,actual,108954.18,USD
+2026-01,Commercial,Sales & marketing,opex,budget,108000.00,USD
+2026-01,Corporate,Corporate overhead,opex,actual,60156.93,USD
+2026-01,Corporate,Corporate overhead,opex,budget,59000.00,USD

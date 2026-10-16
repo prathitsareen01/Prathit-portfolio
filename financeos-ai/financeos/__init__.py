@@ -1,0 +1,1 @@
+"""FinanceOS: auditable financial automation."""

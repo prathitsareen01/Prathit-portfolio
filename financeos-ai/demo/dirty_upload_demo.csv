@@ -1,0 +1,5 @@
+period,department,account,category,scenario,amount,currency
+2026-01,Commercial,Subscription revenue,revenue,actual,684740.51,USD
+2026-01,Commercial,Subscription revenue,revenue,actual,684740.51,USD
+2026-13,Commercial,Subscription revenue,revenue,actual,not a number,USD
+2026-01,Corporate,Office,mystery,budget,500.00,EUR

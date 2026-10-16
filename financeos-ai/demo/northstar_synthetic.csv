@@ -1,0 +1,127 @@
+period,department,account,category,scenario,amount,currency
+2026-01,Commercial,Subscription revenue,revenue,actual,684740.51,USD
+2026-01,Commercial,Subscription revenue,revenue,budget,680000.00,USD
+2026-01,Commercial,Services revenue,revenue,actual,122031.32,USD
+2026-01,Commercial,Services revenue,revenue,budget,125000.00,USD
+2026-01,Delivery,Cloud infrastructure,cogs,actual,192806.54,USD
+2026-01,Delivery,Cloud infrastructure,cogs,budget,195000.00,USD
+2026-01,Delivery,Service delivery,cogs,actual,110449.98,USD
+2026-01,Delivery,Service delivery,cogs,budget,112000.00,USD
+2026-01,Product,Product payroll,opex,actual,154809.00,USD
+2026-01,Product,Product payroll,opex,budget,153000.00,USD
+2026-01,Commercial,Sales & marketing,opex,actual,108954.18,USD
+2026-01,Commercial,Sales & marketing,opex,budget,108000.00,USD
+2026-01,Corporate,Corporate overhead,opex,actual,60156.93,USD
+2026-01,Corporate,Corporate overhead,opex,budget,59000.00,USD
+2026-02,Commercial,Subscription revenue,revenue,actual,680606.95,USD
+2026-02,Commercial,Subscription revenue,revenue,budget,694960.00,USD
+2026-02,Commercial,Services revenue,revenue,actual,127251.28,USD
+2026-02,Commercial,Services revenue,revenue,budget,127750.00,USD
+2026-02,Delivery,Cloud infrastructure,cogs,actual,194604.66,USD
+2026-02,Delivery,Cloud infrastructure,cogs,budget,199290.00,USD
+2026-02,Delivery,Service delivery,cogs,actual,112853.71,USD
+2026-02,Delivery,Service delivery,cogs,budget,114464.00,USD
+2026-02,Product,Product payroll,opex,actual,156407.87,USD
+2026-02,Product,Product payroll,opex,budget,156366.00,USD
+2026-02,Commercial,Sales & marketing,opex,actual,107763.05,USD
+2026-02,Commercial,Sales & marketing,opex,budget,110376.00,USD
+2026-02,Corporate,Corporate overhead,opex,actual,59390.03,USD
+2026-02,Corporate,Corporate overhead,opex,budget,60298.00,USD
+2026-03,Commercial,Subscription revenue,revenue,actual,715240.30,USD
+2026-03,Commercial,Subscription revenue,revenue,budget,709920.00,USD
+2026-03,Commercial,Services revenue,revenue,actual,130793.24,USD
+2026-03,Commercial,Services revenue,revenue,budget,130500.00,USD
+2026-03,Delivery,Cloud infrastructure,cogs,actual,200734.37,USD
+2026-03,Delivery,Cloud infrastructure,cogs,budget,203580.00,USD
+2026-03,Delivery,Service delivery,cogs,actual,117449.88,USD
+2026-03,Delivery,Service delivery,cogs,budget,116928.00,USD
+2026-03,Product,Product payroll,opex,actual,162203.30,USD
+2026-03,Product,Product payroll,opex,budget,159732.00,USD
+2026-03,Commercial,Sales & marketing,opex,actual,109969.84,USD
+2026-03,Commercial,Sales & marketing,opex,budget,112752.00,USD
+2026-03,Corporate,Corporate overhead,opex,actual,62537.86,USD
+2026-03,Corporate,Corporate overhead,opex,budget,61596.00,USD
+2026-04,Commercial,Subscription revenue,revenue,actual,732061.36,USD
+2026-04,Commercial,Subscription revenue,revenue,budget,724880.00,USD
+2026-04,Commercial,Services revenue,revenue,actual,132185.67,USD
+2026-04,Commercial,Services revenue,revenue,budget,133250.00,USD
+2026-04,Delivery,Cloud infrastructure,cogs,actual,204289.23,USD
+2026-04,Delivery,Cloud infrastructure,cogs,budget,207870.00,USD
+2026-04,Delivery,Service delivery,cogs,actual,122121.38,USD
+2026-04,Delivery,Service delivery,cogs,budget,119392.00,USD
+2026-04,Product,Product payroll,opex,actual,161765.44,USD
+2026-04,Product,Product payroll,opex,budget,163098.00,USD
+2026-04,Commercial,Sales & marketing,opex,actual,112783.68,USD
+2026-04,Commercial,Sales & marketing,opex,budget,115128.00,USD
+2026-04,Corporate,Corporate overhead,opex,actual,61625.79,USD
+2026-04,Corporate,Corporate overhead,opex,budget,62894.00,USD
+2026-05,Commercial,Subscription revenue,revenue,actual,752694.51,USD
+2026-05,Commercial,Subscription revenue,revenue,budget,739840.00,USD
+2026-05,Commercial,Services revenue,revenue,actual,136705.34,USD
+2026-05,Commercial,Services revenue,revenue,budget,136000.00,USD
+2026-05,Delivery,Cloud infrastructure,cogs,actual,215418.02,USD
+2026-05,Delivery,Cloud infrastructure,cogs,budget,212160.00,USD
+2026-05,Delivery,Service delivery,cogs,actual,123255.71,USD
+2026-05,Delivery,Service delivery,cogs,budget,121856.00,USD
+2026-05,Product,Product payroll,opex,actual,166765.53,USD
+2026-05,Product,Product payroll,opex,budget,166464.00,USD
+2026-05,Commercial,Sales & marketing,opex,actual,120283.65,USD
+2026-05,Commercial,Sales & marketing,opex,budget,117504.00,USD
+2026-05,Corporate,Corporate overhead,opex,actual,63802.14,USD
+2026-05,Corporate,Corporate overhead,opex,budget,64192.00,USD
+2026-06,Commercial,Subscription revenue,revenue,actual,756764.01,USD
+2026-06,Commercial,Subscription revenue,revenue,budget,754800.00,USD
+2026-06,Commercial,Services revenue,revenue,actual,141035.24,USD
+2026-06,Commercial,Services revenue,revenue,budget,138750.00,USD
+2026-06,Delivery,Cloud infrastructure,cogs,actual,217732.68,USD
+2026-06,Delivery,Cloud infrastructure,cogs,budget,216450.00,USD
+2026-06,Delivery,Service delivery,cogs,actual,126568.37,USD
+2026-06,Delivery,Service delivery,cogs,budget,124320.00,USD
+2026-06,Product,Product payroll,opex,actual,170486.84,USD
+2026-06,Product,Product payroll,opex,budget,169830.00,USD
+2026-06,Commercial,Sales & marketing,opex,actual,121106.20,USD
+2026-06,Commercial,Sales & marketing,opex,budget,119880.00,USD
+2026-06,Corporate,Corporate overhead,opex,actual,64002.80,USD
+2026-06,Corporate,Corporate overhead,opex,budget,65490.00,USD
+2026-07,Commercial,Subscription revenue,revenue,actual,709252.95,USD
+2026-07,Commercial,Subscription revenue,revenue,budget,769760.00,USD
+2026-07,Commercial,Services revenue,revenue,actual,140009.92,USD
+2026-07,Commercial,Services revenue,revenue,budget,141500.00,USD
+2026-07,Delivery,Cloud infrastructure,cogs,actual,242590.96,USD
+2026-07,Delivery,Cloud infrastructure,cogs,budget,220740.00,USD
+2026-07,Delivery,Service delivery,cogs,actual,125090.11,USD
+2026-07,Delivery,Service delivery,cogs,budget,126784.00,USD
+2026-07,Product,Product payroll,opex,actual,169740.75,USD
+2026-07,Product,Product payroll,opex,budget,173196.00,USD
+2026-07,Commercial,Sales & marketing,opex,actual,120898.80,USD
+2026-07,Commercial,Sales & marketing,opex,budget,122256.00,USD
+2026-07,Corporate,Corporate overhead,opex,actual,67241.10,USD
+2026-07,Corporate,Corporate overhead,opex,budget,66788.00,USD
+2026-08,Commercial,Subscription revenue,revenue,actual,728409.76,USD
+2026-08,Commercial,Subscription revenue,revenue,budget,784720.00,USD
+2026-08,Commercial,Services revenue,revenue,actual,143313.68,USD
+2026-08,Commercial,Services revenue,revenue,budget,144250.00,USD
+2026-08,Delivery,Cloud infrastructure,cogs,actual,248765.12,USD
+2026-08,Delivery,Cloud infrastructure,cogs,budget,225030.00,USD
+2026-08,Delivery,Service delivery,cogs,actual,127742.12,USD
+2026-08,Delivery,Service delivery,cogs,budget,129248.00,USD
+2026-08,Product,Product payroll,opex,actual,180416.83,USD
+2026-08,Product,Product payroll,opex,budget,176562.00,USD
+2026-08,Commercial,Sales & marketing,opex,actual,125554.50,USD
+2026-08,Commercial,Sales & marketing,opex,budget,124632.00,USD
+2026-08,Corporate,Corporate overhead,opex,actual,68457.51,USD
+2026-08,Corporate,Corporate overhead,opex,budget,68086.00,USD
+2026-09,Commercial,Subscription revenue,revenue,actual,734551.61,USD
+2026-09,Commercial,Subscription revenue,revenue,budget,799680.00,USD
+2026-09,Commercial,Services revenue,revenue,actual,148684.08,USD
+2026-09,Commercial,Services revenue,revenue,budget,147000.00,USD
+2026-09,Delivery,Cloud infrastructure,cogs,actual,252978.97,USD
+2026-09,Delivery,Cloud infrastructure,cogs,budget,229320.00,USD
+2026-09,Delivery,Service delivery,cogs,actual,130918.14,USD
+2026-09,Delivery,Service delivery,cogs,budget,131712.00,USD
+2026-09,Product,Product payroll,opex,actual,184331.95,USD
+2026-09,Product,Product payroll,opex,budget,179928.00,USD
+2026-09,Commercial,Sales & marketing,opex,actual,154568.73,USD
+2026-09,Commercial,Sales & marketing,opex,budget,127008.00,USD
+2026-09,Corporate,Corporate overhead,opex,actual,69581.57,USD
+2026-09,Corporate,Corporate overhead,opex,budget,69384.00,USD
