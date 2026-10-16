@@ -86,6 +86,7 @@
     const controls = card.querySelector(".project-preview-controls");
     const toggle = card.querySelector(".preview-toggle");
     const panel = card.querySelector(".project-preview-panel");
+    const previewLabel = card.dataset.previewLabel || "project";
     if (!controls || !toggle || !panel) return;
     controls.hidden = false;
     let pinned = false;
@@ -97,7 +98,7 @@
         ? 'Hide preview <span aria-hidden="true">−</span>'
         : expanded
           ? 'Keep preview open <span aria-hidden="true">+</span>'
-          : 'Preview project <span aria-hidden="true">+</span>';
+          : `Preview ${previewLabel} <span aria-hidden="true">+</span>`;
       panel.setAttribute("aria-hidden", String(!expanded));
       panel.inert = !expanded;
       panel.toggleAttribute("inert", !expanded);
