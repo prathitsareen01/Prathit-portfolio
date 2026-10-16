@@ -122,6 +122,26 @@
     });
   });
 
+  document.querySelectorAll("[data-experience-card]").forEach((card) => {
+    const toggle = card.querySelector(".experience-toggle");
+    const details = card.querySelector(".experience-details");
+    if (!toggle || !details) return;
+    const setExpanded = (expanded) => {
+      if (!expanded && details.contains(document.activeElement)) toggle.focus({ preventScroll: true });
+      card.dataset.experienceExpanded = String(expanded);
+      toggle.setAttribute("aria-expanded", String(expanded));
+      details.setAttribute("aria-hidden", String(!expanded));
+      details.inert = !expanded;
+      details.toggleAttribute("inert", !expanded);
+      scheduleProgress();
+    };
+    setExpanded(false);
+    toggle.disabled = false;
+    toggle.addEventListener("click", () => {
+      setExpanded(toggle.getAttribute("aria-expanded") !== "true");
+    });
+  });
+
   const dialogs = [...document.querySelectorAll(".project-preview-dialog")];
   const returnFocus = new Map();
   document.querySelectorAll("[data-preview-open]").forEach((button) => {

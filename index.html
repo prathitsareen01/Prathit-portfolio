@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20261015-resume-preview" />
+    <link rel="stylesheet" href="styles.css?v=20261015-experience" />
   </head>
   <body>
     <div class="reading-progress" aria-hidden="true"><div class="reading-progress-fill"></div></div>
@@ -280,21 +280,30 @@
           </div>
         </section>
 
-        <section id="experience" class="panel">
+<section id="experience" class="panel">
   <div class="section-heading">
     <div>
       <h2>Experience</h2>
       <p class="section-subtitle">Professional experience and leadership</p>
+      <p class="experience-hint">Select a company to explore my work.</p>
     </div>
   </div>
 
   <div class="experience-grid">
-    <article class="experience-card">
-      <h3>Leaf Group</h3>
+    <article class="experience-card" data-experience-card>
+      <h3 class="experience-title">
+        <button class="experience-toggle" type="button" id="leaf-experience-toggle" aria-expanded="true" aria-controls="leaf-experience-details" disabled>
+          <span class="experience-logo" aria-hidden="true"><img src="assets/leaf-group-logo.png" width="200" height="200" loading="lazy" decoding="async" alt="" /></span>
+          <span class="experience-company-name">Leaf Group</span>
+          <span class="experience-chevron" aria-hidden="true"></span>
+        </button>
+      </h3>
       <p class="experience-meta">
         Acquisition Analyst Intern | New York, United States | June 2026 - August 2026
       </p>
-      <ul>
+      <div class="experience-details" id="leaf-experience-details" role="region" aria-labelledby="leaf-experience-toggle">
+        <div class="experience-details-inner">
+          <ul>
         <li>
           Screened and evaluated 100+ lower-middle-market acquisition targets, focusing on businesses
           generating approximately $1M-$5M of EBITDA and analyzing financial performance, industry
@@ -311,14 +320,24 @@
           due diligence, investment analysis, and transaction execution.
         </li>
       </ul>
+        </div>
+      </div>
     </article>
 
-    <article class="experience-card">
-      <h3>Think Gas Distribution Pvt. Ltd.</h3>
+    <article class="experience-card" data-experience-card>
+      <h3 class="experience-title">
+        <button class="experience-toggle" type="button" id="think-gas-experience-toggle" aria-expanded="true" aria-controls="think-gas-experience-details" disabled>
+          <span class="experience-logo experience-logo-wide" aria-hidden="true"><svg viewBox="384 1176 4193 554" focusable="false"><image href="assets/think-gas-logo.png" width="4960" height="2906" /></svg></span>
+          <span class="experience-company-name">Think Gas Distribution Pvt. Ltd.</span>
+          <span class="experience-chevron" aria-hidden="true"></span>
+        </button>
+      </h3>
       <p class="experience-meta">
         Corporate Development Analyst Intern | Noida, India | May 2024 - October 2024
       </p>
-      <ul>
+      <div class="experience-details" id="think-gas-experience-details" role="region" aria-labelledby="think-gas-experience-toggle">
+        <div class="experience-details-inner">
+          <ul>
         <li>
           Executed M&amp;A and corporate restructuring workstreams by structuring the financial and
           contractual terms of a $28M transaction.
@@ -336,14 +355,24 @@
           financial transparency, internal controls, and forecasting accuracy.
         </li>
       </ul>
+        </div>
+      </div>
     </article>
 
-    <article class="experience-card">
-      <h3>Simon Vision Consulting</h3>
+    <article class="experience-card" data-experience-card>
+      <h3 class="experience-title">
+        <button class="experience-toggle" type="button" id="simon-vision-experience-toggle" aria-expanded="true" aria-controls="simon-vision-experience-details" disabled>
+          <span class="experience-logo experience-logo-wide" aria-hidden="true"><img src="assets/simon-vision-logo.png" width="1000" height="285" loading="lazy" decoding="async" alt="" /></span>
+          <span class="experience-company-name">Simon Vision Consulting</span>
+          <span class="experience-chevron" aria-hidden="true"></span>
+        </button>
+      </h3>
       <p class="experience-meta">
         Financial Consultant | Rochester, New York | October 2025 - December 2026
       </p>
-      <ul>
+      <div class="experience-details" id="simon-vision-experience-details" role="region" aria-labelledby="simon-vision-experience-toggle">
+        <div class="experience-details-inner">
+          <ul>
         <li>
           Delivered financial modeling and ROI analysis that identified approximately $700K in
           annual cost savings.
@@ -353,14 +382,24 @@
           facilities.
         </li>
       </ul>
+        </div>
+      </div>
     </article>
 
-    <article class="experience-card" style="break-before: column;">
-      <h3>YOU. Prathit Sareen</h3>
+    <article class="experience-card" data-experience-card>
+      <h3 class="experience-title">
+        <button class="experience-toggle" type="button" id="you-experience-toggle" aria-expanded="true" aria-controls="you-experience-details" disabled>
+          <span class="experience-logo" aria-hidden="true"><img src="assets/you-prathit-sareen-logo.png" width="320" height="320" loading="lazy" decoding="async" alt="" /></span>
+          <span class="experience-company-name">YOU. Prathit Sareen</span>
+          <span class="experience-chevron" aria-hidden="true"></span>
+        </button>
+      </h3>
       <p class="experience-meta">
         Founder and CEO | New Delhi, India | October 2020 - September 2023
       </p>
-      <ul>
+      <div class="experience-details" id="you-experience-details" role="region" aria-labelledby="you-experience-toggle">
+        <div class="experience-details-inner">
+          <ul>
         <li>
           Built a project-level budgeting, cash flow forecasting, and financial control system to manage
           working capital and mitigate cost risk across 50+ client engagements, driving the business to
@@ -387,14 +426,24 @@
           revenue.
         </li>
       </ul>
+        </div>
+      </div>
     </article>
 
-    <article class="experience-card">
-      <h3>India Infoline Finance Limited (IIFL)</h3>
+    <article class="experience-card" data-experience-card>
+      <h3 class="experience-title">
+        <button class="experience-toggle" type="button" id="iifl-experience-toggle" aria-expanded="true" aria-controls="iifl-experience-details" disabled>
+          <span class="experience-logo experience-logo-wide" aria-hidden="true"><img src="assets/iifl-logo.png" width="350" height="233" loading="lazy" decoding="async" alt="" /></span>
+          <span class="experience-company-name">India Infoline Finance Limited (IIFL)</span>
+          <span class="experience-chevron" aria-hidden="true"></span>
+        </button>
+      </h3>
       <p class="experience-meta">
         Investment and Credit Analyst Intern | Gurgaon, India | May 2022 - August 2022
       </p>
-      <ul>
+      <div class="experience-details" id="iifl-experience-details" role="region" aria-labelledby="iifl-experience-toggle">
+        <div class="experience-details-inner">
+          <ul>
         <li>
           Optimized 12+ client portfolios by analyzing financial goals and market trends, achieving
           an average projected return increase of 8-10%.
@@ -406,19 +455,31 @@
           Prepared 20+ investment and lending reports to support senior management decision-making.
         </li>
       </ul>
+        </div>
+      </div>
     </article>
 
-    <article class="experience-card">
-      <h3>Simon School Venture Fund</h3>
+    <article class="experience-card" data-experience-card>
+      <h3 class="experience-title">
+        <button class="experience-toggle" type="button" id="simon-venture-experience-toggle" aria-expanded="true" aria-controls="simon-venture-experience-details" disabled>
+          <span class="experience-logo experience-logo-wide" aria-hidden="true"><img src="assets/simon-venture-logo.png" width="532" height="278" loading="lazy" decoding="async" alt="" /></span>
+          <span class="experience-company-name">Simon School Venture Fund</span>
+          <span class="experience-chevron" aria-hidden="true"></span>
+        </button>
+      </h3>
       <p class="experience-meta">
         Due Diligence Analyst | Rochester, New York | October 2025 - May 2026
       </p>
-      <ul>
+      <div class="experience-details" id="simon-venture-experience-details" role="region" aria-labelledby="simon-venture-experience-toggle">
+        <div class="experience-details-inner">
+          <ul>
         <li>
           Led commercial and financial due diligence on 10+ early-stage startups, supporting $500K
           investment opportunities and capital allocation decisions.
         </li>
       </ul>
+        </div>
+      </div>
     </article>
 
   </div>
@@ -520,7 +581,7 @@
         <a class="button button-secondary" href="assets/resume.pdf?v=20261007-leaf" target="_blank" rel="noopener">Open Resume PDF</a>
       </div>
     </dialog>
-    <script src="script.js?v=20261015-resume-preview"></script>
+    <script src="script.js?v=20261015-experience"></script>
   </body>
 </html>
 
