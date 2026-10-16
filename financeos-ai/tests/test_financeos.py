@@ -253,6 +253,8 @@ def hosted_client(tmp_path,monkeypatch):
     monkeypatch.setenv('FINANCEOS_AUTH_USERNAME','demo')
     monkeypatch.setenv('FINANCEOS_AUTH_PASSWORD','test-only-password-1234567890')
     monkeypatch.setenv('FINANCEOS_EPHEMERAL','true')
+    from financeos import hosting
+    hosting._login_failures.clear()
     with TestClient(app,base_url='https://financeos-test.onrender.com') as c:
         yield c
 
@@ -261,9 +263,10 @@ def test_hosted_auth_protects_every_data_route(hosted_client):
     c=hosted_client
     assert c.get('/api/health').json()=={'status':'ok'}
     for route in ('/','/api/config','/api/datasets','/static/app.js','/docs','/api/template'):
-        denied=c.get(route)
-        assert denied.status_code==401
-        assert 'Basic realm=' in denied.headers['www-authenticate']
+        denied=c.get(route,follow_redirects=False)
+        assert denied.status_code==(303 if route in ('/','/docs') else 401)
+        assert 'www-authenticate' not in denied.headers
+    assert c.get('/login').status_code==200
     assert c.get('/api/datasets',auth=('demo','wrong')).status_code==401
     assert c.get('/api/datasets',headers={'Authorization':'Basic bad-data'}).status_code==401
     assert c.get('/api/datasets',headers={'Authorization':'Bearer arbitrary'}).status_code==401
@@ -302,3 +305,79 @@ def test_hosted_startup_fails_closed(monkeypatch):
     monkeypatch.setenv('FINANCEOS_ALLOWED_HOSTS','financeos.example.com')
     hosting.validate_startup()
     assert '*.example.com' not in hosting.allowed_hosts()
+
+
+def sign_in(c,username='demo',password='test-only-password-1234567890'):
+    return c.post('/login',data={'username':username,'password':password},
+                  headers={'Origin':'https://financeos-test.onrender.com'},follow_redirects=False)
+
+
+def test_login_page_avoids_browser_password_popup(hosted_client):
+    c=hosted_client
+    root=c.get('/',follow_redirects=False)
+    assert root.status_code==303 and root.headers['location']=='/login'
+    page=c.get('/login')
+    assert page.status_code==200 and 'Sign in to FinanceOS.' in page.text
+    assert 'www-authenticate' not in page.headers
+    assert 'test-only-password' not in page.text
+    assert '<form method="post" action="/login">' in page.text
+
+
+def test_cookie_session_supports_complete_workflow(hosted_client):
+    c=hosted_client
+    response=sign_in(c)
+    assert response.status_code==303 and response.headers['location']=='/'
+    cookie=response.headers['set-cookie']
+    for flag in ('__Host-financeos_session=','HttpOnly','Secure','SameSite=lax','Max-Age=28800','Path=/'):
+        assert flag in cookie
+    assert 'test-only-password' not in cookie
+    assert c.get('/').status_code==200
+    assert c.get('/static/app.js').status_code==200
+    id=c.get('/api/datasets').json()[0]['id']
+    assert c.get(f'/api/datasets/{id}/summary').json()['row_count']==126
+    origin={'Origin':'https://financeos-test.onrender.com'}
+    inv=c.post(f'/api/datasets/{id}/investigate',json={'question':'Why EBITDA gap?'},headers=origin).json()
+    assert len(inv['evidence'])==5
+    forecast=c.post(f'/api/datasets/{id}/forecast',json={},headers=origin).json()
+    assert len(forecast['points'])==6
+    assert c.get(f'/api/datasets/{id}/report?format=xlsx').status_code==200
+    assert c.post('/logout',headers=origin,follow_redirects=False).status_code==303
+    assert c.get('/api/datasets').status_code==401
+
+
+def test_login_bad_credentials_and_csrf(hosted_client):
+    c=hosted_client
+    bad=sign_in(c,password='wrong')
+    assert bad.status_code==400 and 'Check your username and password' in bad.text
+    assert 'set-cookie' not in bad.headers
+    assert c.post('/login',data={'username':'demo','password':'test-only-password-1234567890'},headers={'Origin':'https://evil.example'}).status_code==403
+    assert c.post('/login',data={'username':'demo','password':'test-only-password-1234567890'}).status_code==403
+    sign_in(c)
+    assert c.post('/api/demo').status_code==403
+    assert c.post('/logout',headers={'Origin':'https://evil.example'}).status_code==403
+
+
+def test_session_tampering_expiry_and_password_rotation(hosted_client,monkeypatch):
+    from financeos import hosting
+    token=hosting.create_session()
+    assert hosting.session_valid(token)
+    assert not hosting.session_valid(token+'0')
+    assert not hosting.session_valid('not-a-session')
+    assert not hosting.session_valid('💥.notascii')
+    now=hosting.time.time()
+    with monkeypatch.context() as m:
+        m.setattr(hosting.time,'time',lambda:now+hosting.SESSION_SECONDS+1)
+        assert not hosting.session_valid(token)
+    monkeypatch.setenv('FINANCEOS_AUTH_PASSWORD','a-different-long-password-1234567890')
+    assert not hosting.session_valid(token)
+
+
+def test_login_attempts_are_rate_limited(hosted_client,monkeypatch):
+    from financeos import hosting
+    c=hosted_client
+    for _ in range(10):
+        assert sign_in(c,password='wrong').status_code==400
+    assert sign_in(c).status_code==429
+    now=hosting.time.time()
+    monkeypatch.setattr(hosting.time,'time',lambda:now+301)
+    assert sign_in(c).status_code==303

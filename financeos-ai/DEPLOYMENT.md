@@ -23,7 +23,7 @@ If the project is stored inside a repository subfolder, set the service's root d
 The free service's filesystem is temporary: uploads and saved runs reset on a restart/redeploy or host spin-down. The original synthetic data reloads automatically when storage is empty. The app prominently discloses this. For durable storage, provision a paid persistent disk, set `FINANCEOS_DB` inside its mount path, and set `FINANCEOS_EPHEMERAL=false`. Do not enable a paid plan without the owner's approval.
 
 ## Auth behavior
-Hosted startup fails if the password is absent/short or a public domain is not configured. All app pages, static files, API documentation, source rows and report downloads require Basic authentication over the provider's HTTPS endpoint. Only the minimal health endpoint is unauthenticated. This is shared demonstration access, not business-user identity management.
+Hosted startup fails if the password is absent/short or a public domain is not configured. Visitors sign in on the app's /login page. It issues a signed eight-hour session cookie with Secure, HttpOnly and SameSite=Lax protections. App pages, static files, API documentation, source rows and report downloads remain protected. The login page and minimal health endpoint are public. Wrong passwords are rate-limited. Rotating the configured password invalidates existing sessions. Basic headers remain supported for API clients without triggering browser password popups. This is shared demonstration access, not business-user identity management.
 
 ## After the host reports a successful build
 1. Confirm the public URL returns a login challenge.

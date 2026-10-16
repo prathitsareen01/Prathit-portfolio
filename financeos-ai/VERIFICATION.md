@@ -3,7 +3,7 @@
 Verified on October 16, 2026, on macOS with Python 3.14. The deliverable is a local single-user app, not a hosted service.
 
 ## Automated checks
-- **32 tests passed** using isolated temporary SQLite databases.
+- **37 tests passed** using isolated temporary SQLite databases.
 - Browser JavaScript syntax check passed with Node.js 24.
 - Synthetic CSV and XLSX both import as 126 accepted source rows.
 - EBITDA and variance arithmetic checked against independently specified expected values.
@@ -45,3 +45,6 @@ To repeat the checks, follow README.md and run `python -m pytest -q` at the proj
 
 ## Hosted-demo update
 Added mandatory Basic authentication in hosted mode, exact domain allowlisting, same-origin HTTPS write checks, a request-length guard, no-store responses, a synthetic shared-workspace notice and a Render free-plan deployment blueprint. Three additional automated tests verify auth protection, the hosted analysis workflow and fail-closed startup. Deployment status is not implied by passing these local tests.
+
+## Browser sign-in repair
+Replaced the browser-level Basic authentication popup with a regular HTML sign-in form and signed, expiring HTTPS cookies. Kept the password and domain boundary, added a sign-out action and login attempt throttling, and tested cookie-authenticated investigation, forecasting and report export. Five new tests cover sign-in page behavior, cookie workflows, CSRF restrictions, session tampering/expiry/password rotation and login rate limits. Local verification: 37 tests pass. Direct hosted browser inspection remains blocked by the browser environment policy; a Render live deployment alone does not prove that the user's browser can reach it.

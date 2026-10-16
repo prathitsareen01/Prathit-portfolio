@@ -4,8 +4,8 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Literal
 
-from fastapi import FastAPI, File, HTTPException, Query, UploadFile
-from fastapi.responses import FileResponse, Response
+from fastapi import FastAPI, File, Form, HTTPException, Query, Request, UploadFile
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from . import analysis, agent, data, reports, hosting
@@ -38,15 +38,20 @@ async def security_headers(request, call_next):
     host=hosting.request_host(request.headers.get('host',''))
     if host not in hosting.allowed_hosts():
         return Response('Host is not allowed',status_code=403)
-    if hosting.hosted() and request.url.path!='/api/health':
-        if not hosting.authorized(request.headers.get('authorization','')):
-            return Response('Sign in to the FinanceOS portfolio demo',status_code=401,
-                            headers={'WWW-Authenticate':'Basic realm="FinanceOS portfolio demo", charset="UTF-8"',
-                                     'Cache-Control':'no-store'})
+    if hosting.hosted() and request.url.path not in ('/api/health','/login'):
+        signed_in=(hosting.session_valid(request.cookies.get(hosting.COOKIE_NAME,''))
+                   or hosting.authorized(request.headers.get('authorization','')))
+        if not signed_in:
+            if request.method in ('GET','HEAD') and request.url.path in ('/','/docs','/redoc'):
+                return RedirectResponse('/login',status_code=303,headers={'Cache-Control':'no-store'})
+            return JSONResponse({'detail':'Please sign in to the demo workspace.'},status_code=401,
+                                headers={'Cache-Control':'no-store'})
     origin=request.headers.get('origin')
     expected_origin='https://' if hosting.hosted() else 'http://'
     if request.method in ('POST','PUT','DELETE','PATCH') and origin and origin!=expected_origin+request.headers.get('host',''):
         return Response('Cross-origin writes are disabled',status_code=403)
+    if hosting.hosted() and request.method in ('POST','PUT','DELETE','PATCH') and not origin and (request.url.path in ('/login','/logout') or request.cookies.get(hosting.COOKIE_NAME)):
+        return Response('A same-origin request is required',status_code=403)
     length=request.headers.get('content-length')
     if length:
         try:
@@ -61,6 +66,43 @@ async def security_headers(request, call_next):
     response.headers['Cache-Control']='no-store'
     if hosting.hosted():
         response.headers['Strict-Transport-Security']='max-age=31536000'
+    return response
+
+
+def login_page(error='',status=200):
+    from html import escape
+    html=(STATIC/'login.html').read_text().replace('[[ERROR]]',escape(error))
+    return HTMLResponse(html,status_code=status,headers={'Cache-Control':'no-store'})
+
+
+@app.get('/login')
+def login_form(request:Request):
+    if not hosting.hosted() or hosting.session_valid(request.cookies.get(hosting.COOKIE_NAME,'')):
+        return RedirectResponse('/',status_code=303)
+    return login_page()
+
+
+@app.post('/login')
+def login(request:Request,username:str=Form(default='',max_length=100),password:str=Form(default='',max_length=256)):
+    if not hosting.hosted():
+        return RedirectResponse('/',status_code=303)
+    client_id=request.client.host if request.client else 'unknown'
+    if hosting.login_blocked(client_id):
+        return login_page('Too many sign-in attempts. Please try again in five minutes.',429)
+    valid=hosting.credentials_valid(username,password)
+    hosting.record_login(client_id,valid)
+    if not valid:
+        return login_page('Check your username and password, then try again.',400)
+    response=RedirectResponse('/',status_code=303)
+    response.set_cookie(hosting.COOKIE_NAME,hosting.create_session(),max_age=hosting.SESSION_SECONDS,
+                        httponly=True,secure=True,samesite='lax',path='/')
+    return response
+
+
+@app.post('/logout')
+def logout():
+    response=RedirectResponse('/login',status_code=303)
+    response.delete_cookie(hosting.COOKIE_NAME,path='/',secure=True,httponly=True,samesite='lax')
     return response
 
 
