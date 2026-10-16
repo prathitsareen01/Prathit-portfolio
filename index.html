@@ -14,9 +14,10 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20261015-motion" />
   </head>
   <body>
+    <div class="reading-progress" aria-hidden="true"><div class="reading-progress-fill"></div></div>
     <div class="site-shell">
       <header class="topbar">
         <a class="brand" href="#home">Prathit Sareen</a>
@@ -51,7 +52,8 @@
             </div>
             <div class="hero-metrics">
               <article>
-                <span>3+ Years</span>
+                <span class="visually-hidden">3+ Years</span>
+                <span data-count="3" data-suffix="+ Years" aria-hidden="true">3+ Years</span>
                 <p>Financial analytics experience</p>
               </article>
               <article>
@@ -59,7 +61,8 @@
                 <p>Licensed Attorney<br />M&amp;A, Due Diligence, Deal Structuring &amp; Transactions</p>
               </article>
               <article>
-                <span>$200M+</span>
+                <span class="visually-hidden">$200M+</span>
+                <span data-count="200" data-prefix="$" data-suffix="M+" aria-hidden="true">$200M+</span>
                 <p>Transactions and commercial projects supported through finance and due diligence</p>
               </article>
             </div>
@@ -113,7 +116,7 @@
           </div>
 
           <div class="projects-grid">
-            <article class="project-card">
+            <article class="project-card" data-preview-card>
               <div class="project-topline">
                 <span class="project-label">Equity Valuation</span>
                 <h3>Apple Financial Model</h3>
@@ -124,6 +127,17 @@
                 intrinsic value and key drivers, showcasing strong financial modeling and analytical
                 capabilities.
               </p>
+              <div class="project-preview-controls" hidden>
+                <button class="preview-toggle" type="button" aria-expanded="false" aria-controls="apple-preview-panel">Preview project <span aria-hidden="true">+</span></button>
+              </div>
+              <div class="project-preview-panel" id="apple-preview-panel" aria-hidden="true" inert>
+                <div class="project-preview-inner">
+                  <button class="preview-image-button" type="button" data-preview-open="apple-preview-dialog" aria-label="Enlarge Apple financial model preview">
+                    <img src="assets/apple-preview.webp" width="990" height="1400" loading="lazy" decoding="async" alt="Apple project summary: historical and projected revenue chart with an income statement table." />
+                  </button>
+                  <div class="preview-caption"><span>Income statement &amp; projections · Summary, page 2</span><button class="preview-enlarge" type="button" data-preview-open="apple-preview-dialog">Enlarge preview</button></div>
+                </div>
+              </div>
               <div class="project-actions">
                 <a class="button button-primary" href="assets/apple-summary.pdf" target="_blank">
                   Open Summary PDF
@@ -134,7 +148,7 @@
               </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-preview-card>
               <div class="project-topline">
                 <span class="project-label">M&amp;A Strategy</span>
                 <h3>Netflix M&amp;A Strategy Model</h3>
@@ -146,6 +160,17 @@
                 analysis, demonstrating strong skills in corporate finance and strategic
                 decision-making.
               </p>
+              <div class="project-preview-controls" hidden>
+                <button class="preview-toggle" type="button" aria-expanded="false" aria-controls="netflix-preview-panel">Preview project <span aria-hidden="true">+</span></button>
+              </div>
+              <div class="project-preview-panel" id="netflix-preview-panel" aria-hidden="true" inert>
+                <div class="project-preview-inner">
+                  <button class="preview-image-button" type="button" data-preview-open="netflix-preview-dialog" aria-label="Enlarge Netflix M&A project preview">
+                    <img src="assets/netflix-preview.webp" width="990" height="1400" loading="lazy" decoding="async" alt="Netflix project summary: acquisition thesis, baseline financial metrics and three acquisition scenarios." />
+                  </button>
+                  <div class="preview-caption"><span>Acquisition thesis &amp; scenarios · Summary, page 2</span><button class="preview-enlarge" type="button" data-preview-open="netflix-preview-dialog">Enlarge preview</button></div>
+                </div>
+              </div>
               <div class="project-actions">
                 <a class="button button-primary" href="assets/netflix-summary.pdf" target="_blank">
                   Open Summary PDF
@@ -461,6 +486,19 @@
       </main>
     </div>
 
-    <script src="script.js"></script>
+    <dialog class="project-preview-dialog" id="apple-preview-dialog" aria-labelledby="apple-preview-title">
+      <div class="preview-dialog-heading"><h2 id="apple-preview-title">Apple Financial Model</h2><button class="preview-close" type="button" data-preview-close autofocus aria-label="Close Apple preview">Close <span aria-hidden="true">×</span></button></div>
+      <p class="preview-dialog-note">Income statement &amp; projections · Project summary, page 2</p>
+      <img class="preview-full-image" src="assets/apple-preview.webp" width="990" height="1400" loading="lazy" decoding="async" alt="Full page of the Apple financial model summary, showing revenue projections and the income statement." />
+      <a class="button button-primary" href="assets/apple-summary.pdf" target="_blank" rel="noopener">Open full summary PDF</a>
+    </dialog>
+    <dialog class="project-preview-dialog" id="netflix-preview-dialog" aria-labelledby="netflix-preview-title">
+      <div class="preview-dialog-heading"><h2 id="netflix-preview-title">Netflix M&amp;A Strategy Model</h2><button class="preview-close" type="button" data-preview-close autofocus aria-label="Close Netflix preview">Close <span aria-hidden="true">×</span></button></div>
+      <p class="preview-dialog-note">Acquisition thesis &amp; scenarios · Project summary, page 2</p>
+      <img class="preview-full-image" src="assets/netflix-preview.webp" width="990" height="1400" loading="lazy" decoding="async" alt="Full page of the Netflix project summary, showing the acquisition thesis, financial metrics and three deal scenarios." />
+      <a class="button button-primary" href="assets/netflix-summary.pdf" target="_blank" rel="noopener">Open full summary PDF</a>
+    </dialog>
+    <script src="script.js?v=20261015-motion"></script>
   </body>
 </html>
+

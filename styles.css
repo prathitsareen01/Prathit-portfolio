@@ -630,3 +630,38 @@ h3 {
     font-size: 1.1rem;
   }
 }
+
+/* A quiet reading indicator, separate from the navigation. */
+.reading-progress { position: fixed; inset: 0 0 auto; height: 4px; z-index: 100; pointer-events: none; }
+.reading-progress-fill { width: 100%; height: 100%; background: var(--navy); transform: scaleX(0); transform-origin: left center; }
+.visually-hidden { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip-path: inset(50%) !important; white-space: nowrap !important; border: 0 !important; }
+[data-count] { font-variant-numeric: tabular-nums; }
+.project-preview-controls { margin-top: 18px; }
+.preview-toggle, .preview-enlarge, .preview-close, .preview-image-button { font: inherit; cursor: pointer; }
+.preview-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 46px; padding: 10px 14px; border: 1px solid rgba(29, 77, 143, 0.16); border-radius: 12px; background: rgba(220, 233, 251, 0.4); color: var(--blue); font-weight: 700; text-align: left; }
+.preview-toggle > span { font-size: 1.35rem; }
+.project-preview-panel { display: grid; grid-template-rows: 0fr; visibility: hidden; transition: grid-template-rows 0.3s ease, visibility 0.3s; }
+.project-card[data-preview-expanded="true"] .project-preview-panel { grid-template-rows: 1fr; visibility: visible; }
+.project-preview-inner { min-height: 0; overflow: hidden; }
+.preview-image-button { display: block; width: 100%; margin: 14px 0 0; padding: 0; overflow: hidden; border: 1px solid rgba(29, 77, 143, 0.14); border-radius: 14px; background: #fff; }
+.preview-image-button img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: center 20%; transition: transform 0.35s ease; }
+@media (hover: hover) and (pointer: fine) { .preview-image-button:hover img { transform: scale(1.025); } }
+.preview-caption { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; margin-top: 8px; color: var(--muted); font-size: 0.8rem; }
+.preview-enlarge { min-height: 44px; padding: 4px 0; border: 0; background: transparent; color: var(--blue); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.project-preview-dialog { width: min(900px, calc(100% - 28px)); max-height: 90vh; max-height: 90dvh; padding: 24px; color: var(--text); background: #f7fbff; border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); }
+.project-preview-dialog::backdrop { background: rgba(11, 31, 58, 0.72); backdrop-filter: blur(5px); }
+.preview-dialog-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.preview-dialog-heading h2 { margin: 0; color: var(--blue); font-size: clamp(1.55rem, 4vw, 2.3rem); line-height: 1.15; }
+.preview-close { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; flex-shrink: 0; padding: 8px 12px; color: var(--navy); font-weight: 700; background: rgba(220, 233, 251, 0.7); border: 1px solid var(--line); border-radius: 12px; }
+.preview-dialog-note { color: var(--muted); margin: 12px 0 18px; }
+.preview-full-image { display: block; width: 100%; height: auto; border-radius: 6px; margin-bottom: 20px; }
+body.preview-dialog-open { overflow: hidden; }
+.preview-toggle:focus-visible, .preview-enlarge:focus-visible, .preview-close:focus-visible, .preview-image-button:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+@media (max-width: 480px) { .project-preview-dialog { padding: 16px; border-radius: 18px; } .preview-dialog-heading { align-items: flex-start; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0ms !important; transition-duration: 0.01ms !important; }
+  .hero-copy > *, .hero-portrait-card, .reveal { opacity: 1; transform: none; }
+  .project-card:hover, .experience-card:hover, .timeline-card:hover, .skill-block:hover, .button:hover, .hero-photo-frame img:hover, .preview-image-button:hover img { transform: none; }
+}
+
