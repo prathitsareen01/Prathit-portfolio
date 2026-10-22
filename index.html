@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20261015-education" />
+    <link rel="stylesheet" href="styles.css?v=20261022-project-stack" />
   </head>
   <body>
     <div class="reading-progress" aria-hidden="true"><div class="reading-progress-fill"></div></div>
@@ -147,6 +147,38 @@
 
             <article class="project-card" data-preview-card>
               <div class="project-topline">
+                <span class="project-label">FP&amp;A &amp; AI Automation</span>
+                <h3>CloseLens Financial Review</h3>
+              </div>
+              <p>
+                Developed a monthly financial review prototype combining Python, SQLite, and
+                an LLM commentary workflow. Reconciled a $56,000 EBITDA shortfall using synthetic
+                data, linked variances to supporting evidence, and designed validation controls
+                for analyst-reviewed explanations.
+              </p>
+              <div class="project-preview-controls" hidden>
+                <button class="preview-toggle" type="button" aria-expanded="false" aria-controls="closelens-preview-panel">Preview project <span aria-hidden="true">+</span></button>
+              </div>
+              <div class="project-preview-panel" id="closelens-preview-panel" aria-hidden="true" inert>
+                <div class="project-preview-inner">
+                  <button class="preview-image-button" type="button" data-preview-open="closelens-preview-dialog" aria-label="Enlarge CloseLens financial review preview">
+                    <img src="assets/closelens-preview.webp" width="1120" height="1400" loading="lazy" decoding="async" alt="CloseLens EBITDA bridge: budget EBITDA of $90,000 falls to $34,000 after a revenue shortfall and cost overruns." />
+                  </button>
+                  <div class="preview-caption"><span>EBITDA variance bridge · Summary, page 4</span><button class="preview-enlarge" type="button" data-preview-open="closelens-preview-dialog">Enlarge preview</button></div>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a class="button button-primary" href="assets/closelens-summary.pdf" target="_blank" rel="noopener">
+                  Open Summary PDF
+                </a>
+                <a class="button button-secondary" href="assets/closelens-financial-review.xlsx" download>
+                  Download Workbook
+                </a>
+              </div>
+            </article>
+
+            <article class="project-card" data-preview-card>
+              <div class="project-topline">
                 <span class="project-label">Equity Valuation</span>
                 <h3>Apple Financial Model</h3>
               </div>
@@ -206,38 +238,6 @@
                 </a>
                 <a class="button button-secondary" href="assets/netflix-model.xlsx" download>
                   Download Model
-                </a>
-              </div>
-            </article>
-
-            <article class="project-card" data-preview-card>
-              <div class="project-topline">
-                <span class="project-label">FP&amp;A &amp; AI Automation</span>
-                <h3>CloseLens Financial Review</h3>
-              </div>
-              <p>
-                Developed a monthly financial review prototype combining Python, SQLite, and
-                an LLM commentary workflow. Reconciled a $56,000 EBITDA shortfall using synthetic
-                data, linked variances to supporting evidence, and designed validation controls
-                for analyst-reviewed explanations.
-              </p>
-              <div class="project-preview-controls" hidden>
-                <button class="preview-toggle" type="button" aria-expanded="false" aria-controls="closelens-preview-panel">Preview project <span aria-hidden="true">+</span></button>
-              </div>
-              <div class="project-preview-panel" id="closelens-preview-panel" aria-hidden="true" inert>
-                <div class="project-preview-inner">
-                  <button class="preview-image-button" type="button" data-preview-open="closelens-preview-dialog" aria-label="Enlarge CloseLens financial review preview">
-                    <img src="assets/closelens-preview.webp" width="1120" height="1400" loading="lazy" decoding="async" alt="CloseLens EBITDA bridge: budget EBITDA of $90,000 falls to $34,000 after a revenue shortfall and cost overruns." />
-                  </button>
-                  <div class="preview-caption"><span>EBITDA variance bridge · Summary, page 4</span><button class="preview-enlarge" type="button" data-preview-open="closelens-preview-dialog">Enlarge preview</button></div>
-                </div>
-              </div>
-              <div class="project-actions">
-                <a class="button button-primary" href="assets/closelens-summary.pdf" target="_blank" rel="noopener">
-                  Open Summary PDF
-                </a>
-                <a class="button button-secondary" href="assets/closelens-financial-review.xlsx" download>
-                  Download Workbook
                 </a>
               </div>
             </article>
